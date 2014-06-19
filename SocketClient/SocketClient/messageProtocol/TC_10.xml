@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<message>
+    <field type = "short" name = "messageType"/>
+    <field type = "string" name = "name"/>
+    <field type = "java.obj" name = "wife" object = "true">
+        <field type = "java.obj" name = "wife_name" object = "true">
+            <field type = "string" name = "big_name"/>
+            <field type = "string" name = "small_name"/>
+        </field>
+        <field type = "char" name = "age"/>
+        <field type = "java.obj" name = "father" object = "true">
+            <field type = "string" name = "name"/>
+            <field type = "char" name = "age"/>
+            <field type = "java.obj" name = "dogs" list = "true">
+                <field type = "string" name = "name"/>
+                <field type = "char" name = "age"/>
+                <field type = "java.obj" name = "owners" list = "true">
+                    <field type = "string" name = "name"/>
+                    <field type = "char" name = "age"/>
+                    <field type = "java.obj" name = "farms" list = "true">
+                        <field type = "string" name = "name"/>
+                    </field>
+                </field>
+            </field>
+        </field>
+    </field>
+    <field type = "java.obj" name = "kids" list = "true">
+        <field type = "string" name = "name"/>
+        <field type = "char" name = "age"/>
+    </field>
+</message>
