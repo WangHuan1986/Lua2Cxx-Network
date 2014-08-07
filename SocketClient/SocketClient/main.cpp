@@ -17,7 +17,7 @@ extern "C" {
 #include "MessageManager.h"
 
 static int sendData(lua_State *lua){
-    MessageManager::getInstance()->sendMessageFromLua(lua);
+    net::MessageManager::getInstance()->sendMessageFromLua(lua);
     return 0;
 }
 
@@ -35,20 +35,20 @@ int registerAll(lua_State* lua){
 
 int main(int argc, const char * argv[])
 {
-    MessageManager::getInstance()->connect();    
+    net::MessageManager::getInstance()->connect();
     int iErr = 0;
     lua_State *lua = lua_open();  //创建一个lua运行环境
     luaL_openlibs(lua); //将lua中要用到的库函数暴露出去
     
     //将c++的接口暴露给lua
     registerAll(lua);
-    MessageManager::getInstance()->setLuaState(lua);
+    net::MessageManager::getInstance()->setLuaState(lua);
     
     //加载编译Lua文件,并发送数据
-    if ((iErr = luaL_loadfile (lua, "/Users/wanghuan/dev/SocketClient/SocketClient/luaTest.lua")) == 0){
+    if ((iErr = luaL_loadfile (lua, "/Users/wanghuan/dev/Lua2Cxx-Network/SocketClient/SocketClient/luaTest.lua")) == 0){
         //执行刚刚读进来的lua文件。LUA_MULTRET指的是可能会有多个返回值。
         if ((iErr = lua_pcall (lua, 0, LUA_MULTRET, 0)) == 0){
-            MessageManager::getInstance()->run();
+            net::MessageManager::getInstance()->run();
         }
     }
     

@@ -16,7 +16,7 @@
  *warning: passing arg 2 of `connect' discards `const' from pointer target type
  */
 
-#include	"unp.h"
+#include	"syslib.h"
 
 void *
 Calloc(size_t n, size_t size)
@@ -60,15 +60,15 @@ Gettimeofday(struct timeval *tv, void *foo)
 	return;
 }
 
-int
-Ioctl(int fd, int request, void *arg)
-{
-	int		n;
-
-	if ( (n = ioctl(fd, request, arg)) == -1)
-		err_sys("ioctl error");
-	return(n);	/* streamio of I_LIST returns value */
-}
+//int
+//Ioctl(int fd, int request, void *arg)
+//{
+//	int		n;
+//
+//	if ( (n = ioctl(fd, request, arg)) == -1)
+//		err_sys("ioctl error");
+//	return(n);	/* streamio of I_LIST returns value */
+//}
 
 pid_t
 Fork(void)
@@ -219,15 +219,15 @@ Sysconf(int name)
 	return(val);
 }
 
-#ifdef	HAVE_SYS_SYSCTL_H
-void
-Sysctl(int *name, u_int namelen, void *oldp, size_t *oldlenp,
-	   void *newp, size_t newlen)
-{
-	if (sysctl(name, namelen, oldp, oldlenp, newp, newlen) == -1)
-		err_sys("sysctl error");
-}
-#endif
+//#ifdef	HAVE_SYS_SYSCTL_H
+//void
+//Sysctl(int *name, u_int namelen, void *oldp, size_t *oldlenp,
+//	   void *newp, size_t newlen)
+//{
+//	if (sysctl(name, namelen, oldp, oldlenp, newp, newlen) == -1)
+//		err_sys("sysctl error");
+//}
+//#endif
 
 void
 Unlink(const char *pathname)

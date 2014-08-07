@@ -8,47 +8,51 @@
 
 #include "MessageManager.h"
 
-MessageManager *MessageManager::messageManager = NULL;
+namespace net{
+    
+    MessageManager *MessageManager::messageManager = NULL;
 
-void MessageManager::connect(){
-    network.connect();
-}
+    void MessageManager::connect(){
+        network.connect();
+    }
 
-void MessageManager::disconnect(){
-    network.disconnect();
-    reader.reset();
-    writer.reset();
-}
+    void MessageManager::disconnect(){
+        network.disconnect();
+        reader.reset();
+        writer.reset();
+    }
 
-void MessageManager::run(){
-    network.run();
-}
+    void MessageManager::run(){
+//        messageProtocalPath = cocos2d::FileUtils::getInstance()->fullPathForFilename("messageProtocol/TC_0.xml");
+        network.run();
+    }
 
-void MessageManager::sendMessageFromLua(lua_State *lua){
-    size_t msgLen = parser.luaToBinary(lua);
-    sendMessage(parser.getSendBuffer(), msgLen);
-}
+    void MessageManager::sendMessageFromLua(lua_State *lua){
+        size_t msgLen = parser.luaToBinary(lua);
+        sendMessage(parser.getSendBuffer(), msgLen);
+    }
 
-void MessageManager::sendMessage(const void *data , size_t len){
-    writer.write(data,len);
-}
+    void MessageManager::sendMessage(const void *data , size_t len){
+        writer.write(data,len);
+    }
 
-void MessageManager::setLuaState(lua_State *L){
-    lua = L;
-}
+    void MessageManager::setLuaState(lua_State *L){
+        lua = L;
+    }
 
-lua_State *MessageManager::getLuaState(){
-    return lua;
-}
+    lua_State *MessageManager::getLuaState(){
+        return lua;
+    }
 
-MessageWriter& MessageManager::getWriter(){
-    return writer;
-}
+    MessageWriter& MessageManager::getWriter(){
+        return writer;
+    }
 
-MessageReader& MessageManager::getReader(){
-    return reader;
-}
+    MessageReader& MessageManager::getReader(){
+        return reader;
+    }
 
-MessageParser& MessageManager::getParser(){
-    return parser;
+    MessageParser& MessageManager::getParser(){
+        return parser;
+    }
 }

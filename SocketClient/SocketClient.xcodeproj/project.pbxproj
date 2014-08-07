@@ -7,72 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		11746A25194C14DB006C3821 /* connect_nonb.c in Sources */ = {isa = PBXBuildFile; fileRef = 117469A9194C14DB006C3821 /* connect_nonb.c */; };
-		11746A26194C14DB006C3821 /* connect_timeo.c in Sources */ = {isa = PBXBuildFile; fileRef = 117469AA194C14DB006C3821 /* connect_timeo.c */; };
-		11746A27194C14DB006C3821 /* daemon_inetd.c in Sources */ = {isa = PBXBuildFile; fileRef = 117469AB194C14DB006C3821 /* daemon_inetd.c */; };
-		11746A28194C14DB006C3821 /* daemon_init.c in Sources */ = {isa = PBXBuildFile; fileRef = 117469AC194C14DB006C3821 /* daemon_init.c */; };
-		11746A29194C14DB006C3821 /* dg_cli.c in Sources */ = {isa = PBXBuildFile; fileRef = 117469AD194C14DB006C3821 /* dg_cli.c */; };
-		11746A2A194C14DB006C3821 /* dg_echo.c in Sources */ = {isa = PBXBuildFile; fileRef = 117469AE194C14DB006C3821 /* dg_echo.c */; };
 		11746A2B194C14DB006C3821 /* error.c in Sources */ = {isa = PBXBuildFile; fileRef = 117469AF194C14DB006C3821 /* error.c */; };
-		11746A2C194C14DB006C3821 /* family_to_level.c in Sources */ = {isa = PBXBuildFile; fileRef = 117469B0194C14DB006C3821 /* family_to_level.c */; };
-		11746A2D194C14DB006C3821 /* get_ifi_info.c in Sources */ = {isa = PBXBuildFile; fileRef = 117469B1194C14DB006C3821 /* get_ifi_info.c */; };
-		11746A2E194C14DB006C3821 /* gf_time.c in Sources */ = {isa = PBXBuildFile; fileRef = 117469B2194C14DB006C3821 /* gf_time.c */; };
-		11746A2F194C14DB006C3821 /* host_serv.c in Sources */ = {isa = PBXBuildFile; fileRef = 117469B3194C14DB006C3821 /* host_serv.c */; };
-		11746A30194C14DB006C3821 /* hstrerror.c in Sources */ = {isa = PBXBuildFile; fileRef = 117469B4194C14DB006C3821 /* hstrerror.c */; };
-		11746A31194C14DB006C3821 /* if_indextoname.c in Sources */ = {isa = PBXBuildFile; fileRef = 117469B5194C14DB006C3821 /* if_indextoname.c */; };
-		11746A32194C14DB006C3821 /* if_nameindex.c in Sources */ = {isa = PBXBuildFile; fileRef = 117469B6194C14DB006C3821 /* if_nameindex.c */; };
-		11746A33194C14DB006C3821 /* if_nametoindex.c in Sources */ = {isa = PBXBuildFile; fileRef = 117469B7194C14DB006C3821 /* if_nametoindex.c */; };
-		11746A34194C14DB006C3821 /* in6addr_any.c in Sources */ = {isa = PBXBuildFile; fileRef = 117469B8194C14DB006C3821 /* in6addr_any.c */; };
 		11746A35194C14DB006C3821 /* liblua.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 117469C1194C14DB006C3821 /* liblua.a */; };
-		11746A36194C14DB006C3821 /* Makefile in Sources */ = {isa = PBXBuildFile; fileRef = 117469D2194C14DB006C3821 /* Makefile */; };
-		11746A37194C14DB006C3821 /* mcast_get_if.c in Sources */ = {isa = PBXBuildFile; fileRef = 117469D3194C14DB006C3821 /* mcast_get_if.c */; };
-		11746A38194C14DB006C3821 /* mcast_get_loop.c in Sources */ = {isa = PBXBuildFile; fileRef = 117469D4194C14DB006C3821 /* mcast_get_loop.c */; };
-		11746A39194C14DB006C3821 /* mcast_get_ttl.c in Sources */ = {isa = PBXBuildFile; fileRef = 117469D5194C14DB006C3821 /* mcast_get_ttl.c */; };
-		11746A3A194C14DB006C3821 /* mcast_join.c in Sources */ = {isa = PBXBuildFile; fileRef = 117469D6194C14DB006C3821 /* mcast_join.c */; };
-		11746A3B194C14DB006C3821 /* mcast_leave.c in Sources */ = {isa = PBXBuildFile; fileRef = 117469D7194C14DB006C3821 /* mcast_leave.c */; };
-		11746A3C194C14DB006C3821 /* mcast_set_if.c in Sources */ = {isa = PBXBuildFile; fileRef = 117469D8194C14DB006C3821 /* mcast_set_if.c */; };
-		11746A3D194C14DB006C3821 /* mcast_set_loop.c in Sources */ = {isa = PBXBuildFile; fileRef = 117469D9194C14DB006C3821 /* mcast_set_loop.c */; };
-		11746A3E194C14DB006C3821 /* mcast_set_ttl.c in Sources */ = {isa = PBXBuildFile; fileRef = 117469DA194C14DB006C3821 /* mcast_set_ttl.c */; };
-		11746A3F194C14DB006C3821 /* my_addrs.c in Sources */ = {isa = PBXBuildFile; fileRef = 117469DB194C14DB006C3821 /* my_addrs.c */; };
-		11746A40194C14DB006C3821 /* pselect.c in Sources */ = {isa = PBXBuildFile; fileRef = 117469DC194C14DB006C3821 /* pselect.c */; };
-		11746A41194C14DB006C3821 /* read_fd.c in Sources */ = {isa = PBXBuildFile; fileRef = 117469DD194C14DB006C3821 /* read_fd.c */; };
-		11746A42194C14DB006C3821 /* readable_timeo.c in Sources */ = {isa = PBXBuildFile; fileRef = 117469DE194C14DB006C3821 /* readable_timeo.c */; };
-		11746A43194C14DB006C3821 /* readline.c in Sources */ = {isa = PBXBuildFile; fileRef = 117469DF194C14DB006C3821 /* readline.c */; };
-		11746A44194C14DB006C3821 /* readn.c in Sources */ = {isa = PBXBuildFile; fileRef = 117469E0194C14DB006C3821 /* readn.c */; };
-		11746A45194C14DB006C3821 /* rtt.c in Sources */ = {isa = PBXBuildFile; fileRef = 117469E1194C14DB006C3821 /* rtt.c */; };
-		11746A46194C14DB006C3821 /* signal.c in Sources */ = {isa = PBXBuildFile; fileRef = 117469E2194C14DB006C3821 /* signal.c */; };
-		11746A47194C14DB006C3821 /* signal_intr.c in Sources */ = {isa = PBXBuildFile; fileRef = 117469E3194C14DB006C3821 /* signal_intr.c */; };
-		11746A48194C14DB006C3821 /* snprintf.c in Sources */ = {isa = PBXBuildFile; fileRef = 117469E4194C14DB006C3821 /* snprintf.c */; };
-		11746A49194C14DB006C3821 /* sock_bind_wild.c in Sources */ = {isa = PBXBuildFile; fileRef = 117469E5194C14DB006C3821 /* sock_bind_wild.c */; };
-		11746A4A194C14DB006C3821 /* sock_cmp_addr.c in Sources */ = {isa = PBXBuildFile; fileRef = 117469E6194C14DB006C3821 /* sock_cmp_addr.c */; };
-		11746A4B194C14DB006C3821 /* sock_cmp_port.c in Sources */ = {isa = PBXBuildFile; fileRef = 117469E7194C14DB006C3821 /* sock_cmp_port.c */; };
-		11746A4C194C14DB006C3821 /* sock_get_port.c in Sources */ = {isa = PBXBuildFile; fileRef = 117469E8194C14DB006C3821 /* sock_get_port.c */; };
-		11746A4D194C14DB006C3821 /* sock_ntop.c in Sources */ = {isa = PBXBuildFile; fileRef = 117469E9194C14DB006C3821 /* sock_ntop.c */; };
-		11746A4E194C14DB006C3821 /* sock_ntop_host.c in Sources */ = {isa = PBXBuildFile; fileRef = 117469EA194C14DB006C3821 /* sock_ntop_host.c */; };
-		11746A4F194C14DB006C3821 /* sock_set_addr.c in Sources */ = {isa = PBXBuildFile; fileRef = 117469EB194C14DB006C3821 /* sock_set_addr.c */; };
-		11746A50194C14DB006C3821 /* sock_set_port.c in Sources */ = {isa = PBXBuildFile; fileRef = 117469EC194C14DB006C3821 /* sock_set_port.c */; };
-		11746A51194C14DB006C3821 /* sock_set_wild.c in Sources */ = {isa = PBXBuildFile; fileRef = 117469ED194C14DB006C3821 /* sock_set_wild.c */; };
-		11746A52194C14DB006C3821 /* sockatmark.c in Sources */ = {isa = PBXBuildFile; fileRef = 117469EE194C14DB006C3821 /* sockatmark.c */; };
-		11746A53194C14DB006C3821 /* sockfd_to_family.c in Sources */ = {isa = PBXBuildFile; fileRef = 117469EF194C14DB006C3821 /* sockfd_to_family.c */; };
-		11746A54194C14DB006C3821 /* str_cli.c in Sources */ = {isa = PBXBuildFile; fileRef = 117469F0194C14DB006C3821 /* str_cli.c */; };
-		11746A55194C14DB006C3821 /* str_echo.c in Sources */ = {isa = PBXBuildFile; fileRef = 117469F1194C14DB006C3821 /* str_echo.c */; };
-		11746A56194C14DB006C3821 /* tcp_connect.c in Sources */ = {isa = PBXBuildFile; fileRef = 117469F2194C14DB006C3821 /* tcp_connect.c */; };
-		11746A57194C14DB006C3821 /* tcp_listen.c in Sources */ = {isa = PBXBuildFile; fileRef = 117469F3194C14DB006C3821 /* tcp_listen.c */; };
 		11746A58194C14DB006C3821 /* tinystr.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 117469F6194C14DB006C3821 /* tinystr.cpp */; };
 		11746A59194C14DB006C3821 /* tinyxml.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 117469F8194C14DB006C3821 /* tinyxml.cpp */; };
 		11746A5A194C14DB006C3821 /* tinyxmlerror.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 117469FA194C14DB006C3821 /* tinyxmlerror.cpp */; };
 		11746A5B194C14DB006C3821 /* tinyxmlparser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 117469FB194C14DB006C3821 /* tinyxmlparser.cpp */; };
-		11746A5C194C14DB006C3821 /* tv_sub.c in Sources */ = {isa = PBXBuildFile; fileRef = 117469FC194C14DB006C3821 /* tv_sub.c */; };
-		11746A5D194C14DB006C3821 /* udp_client.c in Sources */ = {isa = PBXBuildFile; fileRef = 117469FD194C14DB006C3821 /* udp_client.c */; };
-		11746A5E194C14DB006C3821 /* udp_connect.c in Sources */ = {isa = PBXBuildFile; fileRef = 117469FE194C14DB006C3821 /* udp_connect.c */; };
-		11746A5F194C14DB006C3821 /* udp_server.c in Sources */ = {isa = PBXBuildFile; fileRef = 117469FF194C14DB006C3821 /* udp_server.c */; };
 		11746A60194C14DB006C3821 /* wraplib.c in Sources */ = {isa = PBXBuildFile; fileRef = 11746A04194C14DB006C3821 /* wraplib.c */; };
-		11746A61194C14DB006C3821 /* wrappthread.c in Sources */ = {isa = PBXBuildFile; fileRef = 11746A05194C14DB006C3821 /* wrappthread.c */; };
 		11746A62194C14DB006C3821 /* wrapsock.c in Sources */ = {isa = PBXBuildFile; fileRef = 11746A06194C14DB006C3821 /* wrapsock.c */; };
-		11746A63194C14DB006C3821 /* wrapstdio.c in Sources */ = {isa = PBXBuildFile; fileRef = 11746A07194C14DB006C3821 /* wrapstdio.c */; };
 		11746A64194C14DB006C3821 /* wrapunix.c in Sources */ = {isa = PBXBuildFile; fileRef = 11746A08194C14DB006C3821 /* wrapunix.c */; };
-		11746A65194C14DB006C3821 /* writable_timeo.c in Sources */ = {isa = PBXBuildFile; fileRef = 11746A09194C14DB006C3821 /* writable_timeo.c */; };
-		11746A66194C14DB006C3821 /* write_fd.c in Sources */ = {isa = PBXBuildFile; fileRef = 11746A0A194C14DB006C3821 /* write_fd.c */; };
 		11746A67194C14DB006C3821 /* writen.c in Sources */ = {isa = PBXBuildFile; fileRef = 11746A0B194C14DB006C3821 /* writen.c */; };
 		11746A68194C14DB006C3821 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 11746A0D194C14DB006C3821 /* main.cpp */; };
 		11746A69194C14DB006C3821 /* MessageManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 11746A0E194C14DB006C3821 /* MessageManager.cpp */; };
@@ -96,24 +39,8 @@
 
 /* Begin PBXFileReference section */
 		1174699D194C13E8006C3821 /* SocketClient */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = SocketClient; sourceTree = BUILT_PRODUCTS_DIR; };
-		117469A7194C14DB006C3821 /* addrinfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = addrinfo.h; sourceTree = "<group>"; };
 		117469A8194C14DB006C3821 /* config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = config.h; sourceTree = "<group>"; };
-		117469A9194C14DB006C3821 /* connect_nonb.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = connect_nonb.c; sourceTree = "<group>"; };
-		117469AA194C14DB006C3821 /* connect_timeo.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = connect_timeo.c; sourceTree = "<group>"; };
-		117469AB194C14DB006C3821 /* daemon_inetd.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = daemon_inetd.c; sourceTree = "<group>"; };
-		117469AC194C14DB006C3821 /* daemon_init.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = daemon_init.c; sourceTree = "<group>"; };
-		117469AD194C14DB006C3821 /* dg_cli.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = dg_cli.c; sourceTree = "<group>"; };
-		117469AE194C14DB006C3821 /* dg_echo.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = dg_echo.c; sourceTree = "<group>"; };
 		117469AF194C14DB006C3821 /* error.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = error.c; sourceTree = "<group>"; };
-		117469B0194C14DB006C3821 /* family_to_level.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = family_to_level.c; sourceTree = "<group>"; };
-		117469B1194C14DB006C3821 /* get_ifi_info.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = get_ifi_info.c; sourceTree = "<group>"; };
-		117469B2194C14DB006C3821 /* gf_time.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = gf_time.c; sourceTree = "<group>"; };
-		117469B3194C14DB006C3821 /* host_serv.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = host_serv.c; sourceTree = "<group>"; };
-		117469B4194C14DB006C3821 /* hstrerror.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = hstrerror.c; sourceTree = "<group>"; };
-		117469B5194C14DB006C3821 /* if_indextoname.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = if_indextoname.c; sourceTree = "<group>"; };
-		117469B6194C14DB006C3821 /* if_nameindex.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = if_nameindex.c; sourceTree = "<group>"; };
-		117469B7194C14DB006C3821 /* if_nametoindex.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = if_nametoindex.c; sourceTree = "<group>"; };
-		117469B8194C14DB006C3821 /* in6addr_any.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = in6addr_any.c; sourceTree = "<group>"; };
 		117469BA194C14DB006C3821 /* lapi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lapi.h; sourceTree = "<group>"; };
 		117469BB194C14DB006C3821 /* lauxlib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lauxlib.h; sourceTree = "<group>"; };
 		117469BC194C14DB006C3821 /* lcode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lcode.h; sourceTree = "<group>"; };
@@ -137,41 +64,6 @@
 		117469CE194C14DB006C3821 /* lualib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lualib.h; sourceTree = "<group>"; };
 		117469CF194C14DB006C3821 /* lundump.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lundump.h; sourceTree = "<group>"; };
 		117469D0194C14DB006C3821 /* lvm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lvm.h; sourceTree = "<group>"; };
-		117469D1194C14DB006C3821 /* Make.defines */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Make.defines; sourceTree = "<group>"; };
-		117469D2194C14DB006C3821 /* Makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
-		117469D3194C14DB006C3821 /* mcast_get_if.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = mcast_get_if.c; sourceTree = "<group>"; };
-		117469D4194C14DB006C3821 /* mcast_get_loop.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = mcast_get_loop.c; sourceTree = "<group>"; };
-		117469D5194C14DB006C3821 /* mcast_get_ttl.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = mcast_get_ttl.c; sourceTree = "<group>"; };
-		117469D6194C14DB006C3821 /* mcast_join.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = mcast_join.c; sourceTree = "<group>"; };
-		117469D7194C14DB006C3821 /* mcast_leave.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = mcast_leave.c; sourceTree = "<group>"; };
-		117469D8194C14DB006C3821 /* mcast_set_if.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = mcast_set_if.c; sourceTree = "<group>"; };
-		117469D9194C14DB006C3821 /* mcast_set_loop.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = mcast_set_loop.c; sourceTree = "<group>"; };
-		117469DA194C14DB006C3821 /* mcast_set_ttl.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = mcast_set_ttl.c; sourceTree = "<group>"; };
-		117469DB194C14DB006C3821 /* my_addrs.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = my_addrs.c; sourceTree = "<group>"; };
-		117469DC194C14DB006C3821 /* pselect.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = pselect.c; sourceTree = "<group>"; };
-		117469DD194C14DB006C3821 /* read_fd.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = read_fd.c; sourceTree = "<group>"; };
-		117469DE194C14DB006C3821 /* readable_timeo.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = readable_timeo.c; sourceTree = "<group>"; };
-		117469DF194C14DB006C3821 /* readline.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = readline.c; sourceTree = "<group>"; };
-		117469E0194C14DB006C3821 /* readn.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = readn.c; sourceTree = "<group>"; };
-		117469E1194C14DB006C3821 /* rtt.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = rtt.c; sourceTree = "<group>"; };
-		117469E2194C14DB006C3821 /* signal.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = signal.c; sourceTree = "<group>"; };
-		117469E3194C14DB006C3821 /* signal_intr.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = signal_intr.c; sourceTree = "<group>"; };
-		117469E4194C14DB006C3821 /* snprintf.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = snprintf.c; sourceTree = "<group>"; };
-		117469E5194C14DB006C3821 /* sock_bind_wild.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = sock_bind_wild.c; sourceTree = "<group>"; };
-		117469E6194C14DB006C3821 /* sock_cmp_addr.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = sock_cmp_addr.c; sourceTree = "<group>"; };
-		117469E7194C14DB006C3821 /* sock_cmp_port.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = sock_cmp_port.c; sourceTree = "<group>"; };
-		117469E8194C14DB006C3821 /* sock_get_port.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = sock_get_port.c; sourceTree = "<group>"; };
-		117469E9194C14DB006C3821 /* sock_ntop.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = sock_ntop.c; sourceTree = "<group>"; };
-		117469EA194C14DB006C3821 /* sock_ntop_host.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = sock_ntop_host.c; sourceTree = "<group>"; };
-		117469EB194C14DB006C3821 /* sock_set_addr.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = sock_set_addr.c; sourceTree = "<group>"; };
-		117469EC194C14DB006C3821 /* sock_set_port.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = sock_set_port.c; sourceTree = "<group>"; };
-		117469ED194C14DB006C3821 /* sock_set_wild.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = sock_set_wild.c; sourceTree = "<group>"; };
-		117469EE194C14DB006C3821 /* sockatmark.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = sockatmark.c; sourceTree = "<group>"; };
-		117469EF194C14DB006C3821 /* sockfd_to_family.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = sockfd_to_family.c; sourceTree = "<group>"; };
-		117469F0194C14DB006C3821 /* str_cli.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = str_cli.c; sourceTree = "<group>"; };
-		117469F1194C14DB006C3821 /* str_echo.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = str_echo.c; sourceTree = "<group>"; };
-		117469F2194C14DB006C3821 /* tcp_connect.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = tcp_connect.c; sourceTree = "<group>"; };
-		117469F3194C14DB006C3821 /* tcp_listen.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = tcp_listen.c; sourceTree = "<group>"; };
 		117469F5194C14DB006C3821 /* stdafx.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stdafx.h; sourceTree = "<group>"; };
 		117469F6194C14DB006C3821 /* tinystr.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = tinystr.cpp; sourceTree = "<group>"; };
 		117469F7194C14DB006C3821 /* tinystr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tinystr.h; sourceTree = "<group>"; };
@@ -179,21 +71,9 @@
 		117469F9194C14DB006C3821 /* tinyxml.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tinyxml.h; sourceTree = "<group>"; };
 		117469FA194C14DB006C3821 /* tinyxmlerror.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = tinyxmlerror.cpp; sourceTree = "<group>"; };
 		117469FB194C14DB006C3821 /* tinyxmlparser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = tinyxmlparser.cpp; sourceTree = "<group>"; };
-		117469FC194C14DB006C3821 /* tv_sub.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = tv_sub.c; sourceTree = "<group>"; };
-		117469FD194C14DB006C3821 /* udp_client.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = udp_client.c; sourceTree = "<group>"; };
-		117469FE194C14DB006C3821 /* udp_connect.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = udp_connect.c; sourceTree = "<group>"; };
-		117469FF194C14DB006C3821 /* udp_server.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = udp_server.c; sourceTree = "<group>"; };
-		11746A00194C14DB006C3821 /* unp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = unp.h; sourceTree = "<group>"; };
-		11746A01194C14DB006C3821 /* unpifi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = unpifi.h; sourceTree = "<group>"; };
-		11746A02194C14DB006C3821 /* unprtt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = unprtt.h; sourceTree = "<group>"; };
-		11746A03194C14DB006C3821 /* unpthread.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = unpthread.h; sourceTree = "<group>"; };
 		11746A04194C14DB006C3821 /* wraplib.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = wraplib.c; sourceTree = "<group>"; };
-		11746A05194C14DB006C3821 /* wrappthread.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = wrappthread.c; sourceTree = "<group>"; };
 		11746A06194C14DB006C3821 /* wrapsock.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = wrapsock.c; sourceTree = "<group>"; };
-		11746A07194C14DB006C3821 /* wrapstdio.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = wrapstdio.c; sourceTree = "<group>"; };
 		11746A08194C14DB006C3821 /* wrapunix.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = wrapunix.c; sourceTree = "<group>"; };
-		11746A09194C14DB006C3821 /* writable_timeo.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = writable_timeo.c; sourceTree = "<group>"; };
-		11746A0A194C14DB006C3821 /* write_fd.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = write_fd.c; sourceTree = "<group>"; };
 		11746A0B194C14DB006C3821 /* writen.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = writen.c; sourceTree = "<group>"; };
 		11746A0C194C14DB006C3821 /* luatest.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = luatest.lua; sourceTree = "<group>"; };
 		11746A0D194C14DB006C3821 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
@@ -218,6 +98,7 @@
 		11746A21194C14DB006C3821 /* MessageWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageWriter.h; sourceTree = "<group>"; };
 		11746A22194C14DB006C3821 /* NetworkService.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = NetworkService.cpp; sourceTree = "<group>"; };
 		11746A23194C14DB006C3821 /* NetworkService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkService.h; sourceTree = "<group>"; };
+		117E87541993B5440060403C /* syslib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = syslib.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -235,6 +116,7 @@
 		1174699E194C13E8006C3821 /* SocketClient */ = {
 			isa = PBXGroup;
 			children = (
+				117E87541993B5440060403C /* syslib.h */,
 				117469A6194C14DB006C3821 /* lib */,
 				11746A0C194C14DB006C3821 /* luatest.lua */,
 				11746A0D194C14DB006C3821 /* main.cpp */,
@@ -256,76 +138,13 @@
 		117469A6194C14DB006C3821 /* lib */ = {
 			isa = PBXGroup;
 			children = (
-				117469A7194C14DB006C3821 /* addrinfo.h */,
 				117469A8194C14DB006C3821 /* config.h */,
-				117469A9194C14DB006C3821 /* connect_nonb.c */,
-				117469AA194C14DB006C3821 /* connect_timeo.c */,
-				117469AB194C14DB006C3821 /* daemon_inetd.c */,
-				117469AC194C14DB006C3821 /* daemon_init.c */,
-				117469AD194C14DB006C3821 /* dg_cli.c */,
-				117469AE194C14DB006C3821 /* dg_echo.c */,
 				117469AF194C14DB006C3821 /* error.c */,
-				117469B0194C14DB006C3821 /* family_to_level.c */,
-				117469B1194C14DB006C3821 /* get_ifi_info.c */,
-				117469B2194C14DB006C3821 /* gf_time.c */,
-				117469B3194C14DB006C3821 /* host_serv.c */,
-				117469B4194C14DB006C3821 /* hstrerror.c */,
-				117469B5194C14DB006C3821 /* if_indextoname.c */,
-				117469B6194C14DB006C3821 /* if_nameindex.c */,
-				117469B7194C14DB006C3821 /* if_nametoindex.c */,
-				117469B8194C14DB006C3821 /* in6addr_any.c */,
 				117469B9194C14DB006C3821 /* lua */,
-				117469D1194C14DB006C3821 /* Make.defines */,
-				117469D2194C14DB006C3821 /* Makefile */,
-				117469D3194C14DB006C3821 /* mcast_get_if.c */,
-				117469D4194C14DB006C3821 /* mcast_get_loop.c */,
-				117469D5194C14DB006C3821 /* mcast_get_ttl.c */,
-				117469D6194C14DB006C3821 /* mcast_join.c */,
-				117469D7194C14DB006C3821 /* mcast_leave.c */,
-				117469D8194C14DB006C3821 /* mcast_set_if.c */,
-				117469D9194C14DB006C3821 /* mcast_set_loop.c */,
-				117469DA194C14DB006C3821 /* mcast_set_ttl.c */,
-				117469DB194C14DB006C3821 /* my_addrs.c */,
-				117469DC194C14DB006C3821 /* pselect.c */,
-				117469DD194C14DB006C3821 /* read_fd.c */,
-				117469DE194C14DB006C3821 /* readable_timeo.c */,
-				117469DF194C14DB006C3821 /* readline.c */,
-				117469E0194C14DB006C3821 /* readn.c */,
-				117469E1194C14DB006C3821 /* rtt.c */,
-				117469E2194C14DB006C3821 /* signal.c */,
-				117469E3194C14DB006C3821 /* signal_intr.c */,
-				117469E4194C14DB006C3821 /* snprintf.c */,
-				117469E5194C14DB006C3821 /* sock_bind_wild.c */,
-				117469E6194C14DB006C3821 /* sock_cmp_addr.c */,
-				117469E7194C14DB006C3821 /* sock_cmp_port.c */,
-				117469E8194C14DB006C3821 /* sock_get_port.c */,
-				117469E9194C14DB006C3821 /* sock_ntop.c */,
-				117469EA194C14DB006C3821 /* sock_ntop_host.c */,
-				117469EB194C14DB006C3821 /* sock_set_addr.c */,
-				117469EC194C14DB006C3821 /* sock_set_port.c */,
-				117469ED194C14DB006C3821 /* sock_set_wild.c */,
-				117469EE194C14DB006C3821 /* sockatmark.c */,
-				117469EF194C14DB006C3821 /* sockfd_to_family.c */,
-				117469F0194C14DB006C3821 /* str_cli.c */,
-				117469F1194C14DB006C3821 /* str_echo.c */,
-				117469F2194C14DB006C3821 /* tcp_connect.c */,
-				117469F3194C14DB006C3821 /* tcp_listen.c */,
 				117469F4194C14DB006C3821 /* tinyxml */,
-				117469FC194C14DB006C3821 /* tv_sub.c */,
-				117469FD194C14DB006C3821 /* udp_client.c */,
-				117469FE194C14DB006C3821 /* udp_connect.c */,
-				117469FF194C14DB006C3821 /* udp_server.c */,
-				11746A00194C14DB006C3821 /* unp.h */,
-				11746A01194C14DB006C3821 /* unpifi.h */,
-				11746A02194C14DB006C3821 /* unprtt.h */,
-				11746A03194C14DB006C3821 /* unpthread.h */,
 				11746A04194C14DB006C3821 /* wraplib.c */,
-				11746A05194C14DB006C3821 /* wrappthread.c */,
 				11746A06194C14DB006C3821 /* wrapsock.c */,
-				11746A07194C14DB006C3821 /* wrapstdio.c */,
 				11746A08194C14DB006C3821 /* wrapunix.c */,
-				11746A09194C14DB006C3821 /* writable_timeo.c */,
-				11746A0A194C14DB006C3821 /* write_fd.c */,
 				11746A0B194C14DB006C3821 /* writen.c */,
 			);
 			path = lib;
@@ -460,71 +279,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				11746A25194C14DB006C3821 /* connect_nonb.c in Sources */,
-				11746A26194C14DB006C3821 /* connect_timeo.c in Sources */,
-				11746A27194C14DB006C3821 /* daemon_inetd.c in Sources */,
-				11746A28194C14DB006C3821 /* daemon_init.c in Sources */,
-				11746A29194C14DB006C3821 /* dg_cli.c in Sources */,
-				11746A2A194C14DB006C3821 /* dg_echo.c in Sources */,
 				11746A2B194C14DB006C3821 /* error.c in Sources */,
-				11746A2C194C14DB006C3821 /* family_to_level.c in Sources */,
-				11746A2D194C14DB006C3821 /* get_ifi_info.c in Sources */,
-				11746A2E194C14DB006C3821 /* gf_time.c in Sources */,
-				11746A2F194C14DB006C3821 /* host_serv.c in Sources */,
-				11746A30194C14DB006C3821 /* hstrerror.c in Sources */,
-				11746A31194C14DB006C3821 /* if_indextoname.c in Sources */,
-				11746A32194C14DB006C3821 /* if_nameindex.c in Sources */,
-				11746A33194C14DB006C3821 /* if_nametoindex.c in Sources */,
-				11746A34194C14DB006C3821 /* in6addr_any.c in Sources */,
-				11746A36194C14DB006C3821 /* Makefile in Sources */,
-				11746A37194C14DB006C3821 /* mcast_get_if.c in Sources */,
-				11746A38194C14DB006C3821 /* mcast_get_loop.c in Sources */,
-				11746A39194C14DB006C3821 /* mcast_get_ttl.c in Sources */,
-				11746A3A194C14DB006C3821 /* mcast_join.c in Sources */,
-				11746A3B194C14DB006C3821 /* mcast_leave.c in Sources */,
-				11746A3C194C14DB006C3821 /* mcast_set_if.c in Sources */,
-				11746A3D194C14DB006C3821 /* mcast_set_loop.c in Sources */,
-				11746A3E194C14DB006C3821 /* mcast_set_ttl.c in Sources */,
-				11746A3F194C14DB006C3821 /* my_addrs.c in Sources */,
-				11746A40194C14DB006C3821 /* pselect.c in Sources */,
-				11746A41194C14DB006C3821 /* read_fd.c in Sources */,
-				11746A42194C14DB006C3821 /* readable_timeo.c in Sources */,
-				11746A43194C14DB006C3821 /* readline.c in Sources */,
-				11746A44194C14DB006C3821 /* readn.c in Sources */,
-				11746A45194C14DB006C3821 /* rtt.c in Sources */,
-				11746A46194C14DB006C3821 /* signal.c in Sources */,
-				11746A47194C14DB006C3821 /* signal_intr.c in Sources */,
-				11746A48194C14DB006C3821 /* snprintf.c in Sources */,
-				11746A49194C14DB006C3821 /* sock_bind_wild.c in Sources */,
-				11746A4A194C14DB006C3821 /* sock_cmp_addr.c in Sources */,
-				11746A4B194C14DB006C3821 /* sock_cmp_port.c in Sources */,
-				11746A4C194C14DB006C3821 /* sock_get_port.c in Sources */,
-				11746A4D194C14DB006C3821 /* sock_ntop.c in Sources */,
-				11746A4E194C14DB006C3821 /* sock_ntop_host.c in Sources */,
-				11746A4F194C14DB006C3821 /* sock_set_addr.c in Sources */,
-				11746A50194C14DB006C3821 /* sock_set_port.c in Sources */,
-				11746A51194C14DB006C3821 /* sock_set_wild.c in Sources */,
-				11746A52194C14DB006C3821 /* sockatmark.c in Sources */,
-				11746A53194C14DB006C3821 /* sockfd_to_family.c in Sources */,
-				11746A54194C14DB006C3821 /* str_cli.c in Sources */,
-				11746A55194C14DB006C3821 /* str_echo.c in Sources */,
-				11746A56194C14DB006C3821 /* tcp_connect.c in Sources */,
-				11746A57194C14DB006C3821 /* tcp_listen.c in Sources */,
 				11746A58194C14DB006C3821 /* tinystr.cpp in Sources */,
 				11746A59194C14DB006C3821 /* tinyxml.cpp in Sources */,
 				11746A5A194C14DB006C3821 /* tinyxmlerror.cpp in Sources */,
 				11746A5B194C14DB006C3821 /* tinyxmlparser.cpp in Sources */,
-				11746A5C194C14DB006C3821 /* tv_sub.c in Sources */,
-				11746A5D194C14DB006C3821 /* udp_client.c in Sources */,
-				11746A5E194C14DB006C3821 /* udp_connect.c in Sources */,
-				11746A5F194C14DB006C3821 /* udp_server.c in Sources */,
 				11746A60194C14DB006C3821 /* wraplib.c in Sources */,
-				11746A61194C14DB006C3821 /* wrappthread.c in Sources */,
 				11746A62194C14DB006C3821 /* wrapsock.c in Sources */,
-				11746A63194C14DB006C3821 /* wrapstdio.c in Sources */,
 				11746A64194C14DB006C3821 /* wrapunix.c in Sources */,
-				11746A65194C14DB006C3821 /* writable_timeo.c in Sources */,
-				11746A66194C14DB006C3821 /* write_fd.c in Sources */,
 				11746A67194C14DB006C3821 /* writen.c in Sources */,
 				11746A68194C14DB006C3821 /* main.cpp in Sources */,
 				11746A69194C14DB006C3821 /* MessageManager.cpp in Sources */,
@@ -629,6 +391,7 @@
 				117469A5194C13E8006C3821 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		119709E718DAFCA50042FEF2 /* Build configuration list for PBXProject "SocketClient" */ = {
 			isa = XCConfigurationList;
