@@ -1,6 +1,5 @@
 --指定了lua搜索的根目录，所有相对路径都是相对这个目录进行查找的
-_G.package.path = _G.package.path .. ";/Users/wanghuan/dev/SocketClient/SocketClient_v2/?.lua"
-
+_G.package.path = _G.package.path .. ";/Users/wanghuan/mine/SocketClient/SocketClient/?.lua"
 --[[
    Author: Julio Manuel Fernandez-Diaz
    Date:   January 12, 2007
@@ -107,156 +106,154 @@ function table.show(t, name, indent)
    return cart .. autoref
 end
 
+---------------------------------------------------------------------------------
 
-
-
---------------------------------------------------------------------------------------------------------------------------------
 g = {}
 g["MESSAGE_TYPE"] = {}
-g["MESSAGE_TYPE"]["TC_0"] = 0
-g["MESSAGE_TYPE"]["TC_1"] = 1
-g["MESSAGE_TYPE"]["TC_2"] = 2
-g["MESSAGE_TYPE"]["TC_3"] = 3
-g["MESSAGE_TYPE"]["TC_4"] = 4
-g["MESSAGE_TYPE"]["TC_5"] = 5
-g["MESSAGE_TYPE"]["TC_6"] = 6
-g["MESSAGE_TYPE"]["TC_7"] = 7
-g["MESSAGE_TYPE"]["TC_8"] = 8
-g["MESSAGE_TYPE"]["TC_9"] = 9
-g["MESSAGE_TYPE"]["TC_10"] = 10
-g["MESSAGE_TYPE"][0] = "TC_0"
-g["MESSAGE_TYPE"][1] = "TC_1"
-g["MESSAGE_TYPE"][2] = "TC_2"
-g["MESSAGE_TYPE"][3] = "TC_3"
-g["MESSAGE_TYPE"][4] = "TC_4"
-g["MESSAGE_TYPE"][5] = "TC_5"
-g["MESSAGE_TYPE"][6] = "TC_6"
-g["MESSAGE_TYPE"][7] = "TC_7"
-g["MESSAGE_TYPE"][8] = "TC_8"
-g["MESSAGE_TYPE"][9] = "TC_9"
-g["MESSAGE_TYPE"][10] = "TC_10"
+g["MESSAGE_TYPE"][1001] = "1001"
+g["MESSAGE_TYPE"][1002] = "1002"
+g["MESSAGE_TYPE"][1003] = "1003"
+g["MESSAGE_TYPE"][1004] = "1004"
+g["MESSAGE_TYPE"][1005] = "1005"
+g["MESSAGE_TYPE"][1006] = "1006"
+g["MESSAGE_TYPE"][1007] = "1007"
+g["MESSAGE_TYPE"][1008] = "1008"
+g["MESSAGE_TYPE"][1009] = "1009"
+g["MESSAGE_TYPE"][1010] = "1010"
+g["MESSAGE_TYPE"][1011] = "1011"
 
---tc_0
--- local data = {["messageType"] = g["MESSAGE_TYPE"]["TC_0"]}
+-- --tc_1
+local data1 = {
+   ["messageId"] = g["MESSAGE_TYPE"][1001],
+   ["name"] = "F"
+}
 
---tc_1
--- local data = {["messageType"] = g["MESSAGE_TYPE"]["TC_1"],["name"] = nil}
+-- --tc_2
+local data2 = {
+  ["messageId"] = g["MESSAGE_TYPE"][1002],
+  ["o"] = {["name"] = nil}
+}
 
---tc_2
--- local data = {
---   ["messageType"] = g["MESSAGE_TYPE"]["TC_2"],
---   ["o"] = {}
--- }
+-- --tc_3
+local data3 = {
+  ["messageId"] = g["MESSAGE_TYPE"][1003],
+  ["mylist"] = {
+    {["name"] = "D"}
+  }
+}
 
---tc_3
--- local data = {
---   ["messageType"] = g["MESSAGE_TYPE"]["TC_3"],
---   ["mylist"] = {
---     {["name"] = nil}
---   }
--- }
+-- --tc_4
+local data4 = {
+  ["messageId"] = g["MESSAGE_TYPE"][1004],
+  ["A"] = {
+    ["B"] = {
+      ["C"] = {
+        ["D"] = {
+            ["name"] = "wh"
+        }
+      }
+    }
+  },
+  ["E"] = {}
+}
 
---tc_4
--- local data = {
---   ["messageType"] = g["MESSAGE_TYPE"]["TC_4"],
---   ["A"] = {
---     ["B"] = {
---       ["C"] = {
---         ["D"] = {
---         }
---       }
---     }
---   },
---   ["E"] = {}
--- }
+-- --tc_5
+local data5 = {
+  ["messageId"] = g["MESSAGE_TYPE"][1005],
+  ["A"] = {
+    ["name"] = "A",
+    ["B"] = {
+      ["C"] = {
+        ["D"] = {
+        }
+      }
+    }
+  },
+  ["E"] = {}
+}
 
---tc_5
--- local data = {
---   ["messageType"] = g["MESSAGE_TYPE"]["TC_5"],
---   ["A"] = {
---     ["name"] = "A",
---     ["B"] = {
---       ["C"] = {
---         ["D"] = {
---         }
---       }
---     }
---   },
---   ["E"] = {}
--- }
+-- --tc_6
+local data6 = {
+  ["messageId"] = g["MESSAGE_TYPE"][1006],
+  ["name"] = "data",
+  ["A"] = {},
+  ["B"] = {},
+  ["C"] = {},
+  ["D"] = {
+    ["E"] = {
+      ["F"] = {}
+    }
+  }
+}
 
---tc_6
--- local data = {
---   ["messageType"] = g["MESSAGE_TYPE"]["TC_6"],
---   ["name"] = "data",
---   ["A"] = {},
---   ["B"] = {},
---   ["C"] = {},
---   ["D"] = {
---     ["E"] = {
---       ["F"] = {}
---     }
---   }
--- }
+-- --tc_7
+local data7 = {
+  ["messageId"] = g["MESSAGE_TYPE"][1007],
+  ["string_field"] = "wh",
+  ["boolean_field"] = true,
+  ["char_field"] = 27,
+  ["short_field"] = 32767,
+  ["int_field"] = 2147483647,
+  ["long_field"] = 99999999999999,
+  ["double_field"] = 123456789.123456
+}
 
---tc_7
--- local data = {
---   ["messageType"] = g["MESSAGE_TYPE"]["TC_7"],
---   ["string_field"] = "wh",
---   ["boolean_field"] = true,
---   ["char_field"] = 27,
---   ["short_field"] = 32767,
---   ["int_field"] = 2147483647,
---   ["long_field"] = 99999999999999,
---   ["double_field"] = 123456789.123456
--- }
+-- -- tc_8
+local data8 = {
+   ["messageId"] = g["MESSAGE_TYPE"][1008],
+   ["string_field"] = "wh",
+   ["boolean_field"] = true,
+   ["byte_field"] = 27,
+   ["short_field"] = 32767,
+   ["int_field"] = 2147483647,
+   ["long_field"] = 99999999999999,
+   ["wife"] = {
+        ["wife_name"] = {
+          ["big_name"] = "yj",
+          ["small_name"] = "jj"
+        },
+        ["kids"] = {
+            {["name"] = "kid1",["age"] = 1},
+            {["name"] = "kid2",["age"] = 2},
+            {["name"] = "kid3",["age"] = 3}
+        }
+    }
+}
 
--- tc_8
--- local data = {
---   ["messageType"] = g["MESSAGE_TYPE"]["TC_8"],
---   ["name"] = "wh",
---   ["wife"] = {["name"] = "yj",["age"] = 27},
---   ["kids"] = {
---     {["name"] = "k1",["age"] = 1},
---     {["name"] = "k2",["age"] = 2},
---     {["name"] = "k3",["age"] = 3}
---   }
--- }
+-- --tc_9
+local data9 = {
+  ["messageId"] = g["MESSAGE_TYPE"][1009],
+  ["wife"] = {
+    ["father"] = {
+      ["dogs"] = {
+        {
+          ["owners"] = {
+            {
+              ["name"] = "dog1_owner1",
+              ["farms"] = {
+                {["name"] = "farm1"},
+                {["name"] = "farm2"},
+                {["name"] = "farm3"}
+              }
+            },
+            {
+              ["name"] = "dog1_owner2",
+              ["farms"] = {
+                {["name"] = "farm1"},
+                {["name"] = "farm2"},
+                {["name"] = "farm3"}
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
 
---tc_9
--- local data = {
---   ["messageType"] = g["MESSAGE_TYPE"]["TC_9"],
---   ["wife"] = {
---     ["father"] = {
---       ["dogs"] = {
---         {
---           ["owners"] = {
---             {
---               ["name"] = "dog1_owner1",
---               ["farms"] = {
---                 {["name"] = "farm1"},
---                 {["name"] = "farm2"},
---                 {["name"] = "farm3"}
---               }
---             },
---             {
---               ["name"] = "dog1_owner2",
---               ["farms"] = {
---                 {["name"] = "farm1"},
---                 {["name"] = "farm2"},
---                 {["name"] = "farm3"}
---               }
---             }
---           }
---         }
---       }
---     }
---   }
--- }
-
---tc_10
-local data = {
-  ["messageType"] = g["MESSAGE_TYPE"]["TC_10"],
+-- --tc_10
+local data10 = {
+  ["messageId"] = g["MESSAGE_TYPE"][1010],
   ["name"] = "wh",
   ["wife"] = {
     ["wife_name"] = {
@@ -377,13 +374,21 @@ local data = {
   }
 }
 
+local data11 = {
+  ["messageId"] = g["MESSAGE_TYPE"][1011],
+  ["wifes"] = {
+    {["name"] = "w1"},
+    {["name"] = "w2"}
+  },
+  ["string_field"] = "wh"
+}
 
 
-print(table.show(data,"data"))
-print("==========above is right result =========")
+
+print(table.show(data11,"data"))
 
 function helloWorld ()
-  print(c_myLib.sendData(data))
+  print(c_myLib.sendData(data11))
 end
 
 helloWorld()
@@ -393,3 +398,4 @@ function luaCallBack( t )
   print("========== result =========")
   print(table.show(t,"data"))
 end
+

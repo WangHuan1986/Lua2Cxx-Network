@@ -8,28 +8,25 @@
 
 #include "MessageManager.h"
 #include "MessageParser.h"
+
 namespace net{
+    
     size_t MessageParser::luaToBinary(lua_State *lua){
         //将buffer中的index重置
         size_t msgLen = 0;
         resetTravelId();
         sendBufferIndex = 0;
         //获取消息类型
-        const char *msgType = getMessageTypeFromLua(lua);
-        //在定义消息协议文件的时候，第一个field一定得是“<field type = "short" name = "messageType"/>”
-        //因为在通过二进制转换为lua table的时候首先要从二进制字节流中获取到messageType，然后才能进一步加载消息协议文件对二进制信息进行解析
-        TiXmlDocument doc((MESSAGE_PROTOCOL_PATH + std::string(msgType) + ".xml").c_str());
+        const char *msgType = getMessageIdFromLua(lua);
+        //将调用getMessageIdFromLua后获得的结果在lua栈上清空，只留下要发送的table
         lua_settop(lua, 1);
-        if(doc.LoadFile()){
-            Node *root = createProtocolTree(&doc,NULL);
-            DataNode *dataTreeRoot = createDataTreeFromLua(lua,root);
-            //将datatree上的数据拷贝到parser的缓冲区上
-            msgLen = serialDataTree(dataTreeRoot);
-            //释放资源
-            destoryProtocolTree(root);
-            destoryDataTree(dataTreeRoot);
-            lua_settop(lua, 0);
-        }
+        Node *protocolTree = getProtocol(msgType);
+        DataNode *dataTreeRoot = createDataTreeFromLua(lua,protocolTree);
+        //将datatree上的数据拷贝到parser的缓冲区上
+        msgLen = serialDataTree(dataTreeRoot);
+        //释放资源
+        destoryDataTree(dataTreeRoot);
+        lua_settop(lua, 0);
         
         return msgLen;
     }
@@ -39,27 +36,81 @@ namespace net{
         //重置读缓冲区的标识
         readBufferIndex = 0;
         //获取消息类型
-        const char *msgType = getMessageTypeFromBinary();
-        TiXmlDocument doc((MESSAGE_PROTOCOL_PATH + std::string(msgType) + ".xml").c_str());
-        if(doc.LoadFile()){
-            Node *root = createProtocolTree(&doc,NULL);
-            DataNode *dataTreeRoot = createDataTreeFromBinary(root,NULL);
-            lua_State *lua = MessageManager::getInstance()->getLuaState();
-            //清空lua栈
-            lua_settop(lua, 0);
-            //清空table栈
-            while (tableStack.size() > 0) {
-                tableStack.pop();
-            }
-            //根据接收到的二进制消息创建lua table
-            createLuaTable(dataTreeRoot);
-            destoryProtocolTree(root);
-            destoryDataTree(dataTreeRoot);
-            //Lua Table创建完毕，回调lua函数
-            lua_getglobal(lua, "luaCallBack");
-            lua_insert(lua, 1);
-            lua_pcall(lua, 1, 0, 0);
+        const char *msgType = getMessageIdFromBinary().c_str();
+        Node *protocolTree = getProtocol(msgType);
+        //消息体中的前两个字节是消息id，执行到这里的时候消息id已经读取完毕，所以要将读缓冲区索引向后移动2位以读取后面的数据
+        readBufferIndex += MESSAGE_ID_LENGTH;
+        DataNode *dataTreeRoot = createDataTreeFromBinary(protocolTree,NULL);
+        lua_State *lua = MessageManager::getInstance()->getLuaState();
+        //清空lua栈
+        lua_settop(lua, 0);
+        //清空table栈
+        while (tableStack.size() > 0) {
+            tableStack.pop();
         }
+        //根据接收到的二进制消息创建lua table
+        createLuaTable(dataTreeRoot);
+        destoryDataTree(dataTreeRoot);
+        //给返回的table加上messageId
+        lua_pushstring(lua, "messageId");
+        lua_pushstring(lua, msgType);
+        lua_settable(lua, -3);
+        //Lua Table创建完毕，回调lua函数
+        lua_getglobal(lua, "luaCallBack");
+        lua_insert(lua, 1);
+        lua_pcall(lua, 1, 0, 0);
+        
+    }
+    
+    void MessageParser::loadProtocol(){
+        
+        TiXmlDocument doc(MESSAGE_PROTOCOL_PATH);
+        TiXmlNode* root = NULL;
+        TiXmlNode* messagesNode = NULL;
+        TiXmlNode* pChild = NULL;
+        
+        if(doc.LoadFile()){
+            root = &doc;
+            //找到meessages节点
+            for (pChild = root->FirstChild(); pChild != 0; pChild = pChild->NextSibling()) {
+                if (strcmp(pChild->Value(),"messages") == 0) {
+                    messagesNode = pChild;
+                    break;
+                }
+            }
+            for (pChild = messagesNode->FirstChild(); pChild != 0; pChild = pChild->NextSibling()) {
+                //遍历xml，找到所有message节点将其转换为protocol tree并存入protocolMap
+                if (strcmp(pChild->Value(),"message") == 0) {
+                    const char *id = NULL;
+                    TiXmlAttribute* pAttrib = pChild->ToElement()->FirstAttribute();
+                    while (pAttrib)
+                    {
+                        if (strcmp(pAttrib->Name(),"id") == 0) {
+                            id = pAttrib->Value();
+                        }
+                        pAttrib = pAttrib->Next();
+                    }
+                    Node *protocolTreeRoot = createProtocolTree(pChild,NULL);
+                    protocolMap.insert(make_pair(std::string(id),protocolTreeRoot));
+                }
+
+            }
+            
+        }
+
+    }
+    
+    Node * MessageParser::getProtocol(const char *msgId){
+        Node *protocolTree = NULL;
+        std::map<std::string, Node *>::iterator iter = protocolMap.begin();
+        while (iter != protocolMap.end()) {
+            if (strcmp(msgId,iter->first.c_str()) == 0) {
+                protocolTree = (Node *)iter->second;
+            }
+            ++iter;
+        }
+        
+        return protocolTree;
     }
 
     Node * MessageParser::createProtocolTree(TiXmlNode* pParent,Node *parentNode){
@@ -73,7 +124,7 @@ namespace net{
          *  xml:
          *    <?xml version="1.0" encoding="UTF-8"?>
          *    <message>
-         *      <field type = "short" name = "messageType"/>
+         *      <field type = "short" name = "messageId"/>
          *    </message>
          *
          *  返回的TiXmlDocument对象树:
@@ -110,28 +161,33 @@ namespace net{
             while (pAttrib)
             {
                 if (strcmp(pAttrib->Name(),"name") == 0) {
-                    node->data = pAttrib->Value();
+                    const char *str = pAttrib->Value();
+                    size_t len = strlen(str);
+                    char *strCopied = (char *)malloc(len + 1);
+                    memcpy(strCopied, str, len);
+                    strCopied[len] = '\0';
+                    node->data = strCopied;
                 }
                 if (strcmp(pAttrib->Name(),"type") == 0) {
                     node->dataType = parseDataType(pAttrib->Value());
-                }
-                if (strcmp(pAttrib->Name(),"list") == 0) {
-                    if (strcmp(pAttrib->Value(),"true") == 0) {
+                    if (node->dataType == DataType::OBJECT) {
+                        node->isObject = true;
+                    }
+                    if (node->dataType == DataType::LIST) {
                         node->isList = true;
                     }
                 }
-                if (strcmp(pAttrib->Name(),"object") == 0) {
-                    if (strcmp(pAttrib->Value(),"true") == 0) {
-                        node->isObject = true;
-                    }
-                }
+                
                 pAttrib = pAttrib->Next();
             }
         }
         
         pChild = pParent->FirstChild();
         node->leftLink = createProtocolTree(pChild,node);
-        node->rightLink = createProtocolTree(pParent->NextSibling(),parentNode);
+        if (pParent->NextSibling() != NULL && strcmp(pParent->NextSibling()->Value(),"message") != 0) {
+            node->rightLink = createProtocolTree(pParent->NextSibling(),parentNode);
+        }
+
         node->parent = parentNode;
         
         if (node->isRoot) {
@@ -150,7 +206,7 @@ namespace net{
         else if (strcmp(dataType,"boolean") == 0){
             return DataType::BOOLEAN;
         }
-        else if (strcmp(dataType,"char") == 0){
+        else if (strcmp(dataType,"byte") == 0){
             return DataType::CHAR;
         }
         else if (strcmp(dataType,"short") == 0){
@@ -164,6 +220,12 @@ namespace net{
         }
         else if (strcmp(dataType,"double") == 0){
             return DataType::DOUBLE;
+        }
+        else if (strcmp(dataType,"object") == 0){
+            return DataType::OBJECT;
+        }
+        else if (strcmp(dataType,"list") == 0){
+            return DataType::LIST;
         }
         else{
             return DataType::UNKNOWN;
@@ -259,7 +321,8 @@ namespace net{
                 for (int i = 1; i <= listLen; i++) {
                     lua_rawgeti(lua, -i, i);
                     //递归创建list中的各个元素，list中的元素以单链表的形式进行存储，最后返回链表的第一个结点
-                    DataNode *newChild = createDataTreeFromLua(lua,copySubTree(node,NULL));
+                    Node *subTreeRoot = copySubTree(node,NULL);
+                    DataNode *newChild = createDataTreeFromLua(lua,subTreeRoot);
                     if (listFirstChild == NULL) {
                         listFirstChild = newChild;
                         listLastChild = newChild;
@@ -331,7 +394,13 @@ namespace net{
         
         Node *node = new Node();
         node->leftLink = copySubTree(origNode->leftLink,node);
-        node->rightLink = copySubTree(origNode->rightLink,parentNode);
+        //复制protocol tree中的list节点子树的时候，在复制根节点的时候不要复制它的兄弟节点。
+        if (parentNode != NULL) {
+            node->rightLink = copySubTree(origNode->rightLink,parentNode);
+        }
+        else{
+            node->isObject = true;
+        }
         node->parent = parentNode;
         node->data = origNode->data;
         node->dataType = origNode->dataType;
@@ -494,17 +563,20 @@ namespace net{
                 sendBufferIndex += dataLen;
             }
                 break;
-            case DataType::UNKNOWN:
+                
+            case DataType::LIST:
             {
-                if (node->isList) {
-                    //如果当前序列化的节点是list类型，则在list数据的前面加上2个字节的长度数据以表示list中所含元素的个数
-                    int16_t listLenIndicator = (int16_t)node->listSize;
-                    memcpy(sendbuffer + sendBufferIndex, &listLenIndicator, DataTypeLen::SHORT_LEN);
-                    sendBufferIndex += DataTypeLen::SHORT_LEN;
-                    dataLen = DataTypeLen::SHORT_LEN;
-                }
+                //如果当前序列化的节点是list类型，则在list数据的前面加上2个字节的长度数据以表示list中所含元素的个数
+                int16_t listLenIndicator = (int16_t)node->listSize;
+                memcpy(sendbuffer + sendBufferIndex, &listLenIndicator, DataTypeLen::SHORT_LEN);
+                sendBufferIndex += DataTypeLen::SHORT_LEN;
+                dataLen = DataTypeLen::SHORT_LEN;
             }
                 break;
+            default:{
+                
+            }
+
         }
         
         return dataLen;
@@ -564,7 +636,8 @@ namespace net{
             DataNode *listFirstChild = NULL;
             DataNode *listLastChild = listFirstChild;
             for (int i = 1; i <= listLen; i++) {
-                DataNode *newChild = createDataTreeFromBinary(copySubTree(node,NULL),parentNode);
+                Node *subTreeRoot = copySubTree(node,NULL);
+                DataNode *newChild = createDataTreeFromBinary(subTreeRoot,parentNode);
                 newChild->isObject = true;
                 if (listFirstChild == NULL) {
                     listFirstChild = newChild;
@@ -821,6 +894,7 @@ namespace net{
     }
 
     /**
+     *  合并table
      *  当当前遍历到的节点的父节点不是tablestack当前的栈顶元素时，就需要settable或是rawset进行table合并了，因为这个时候标识着
      *  已经遍历到了栈顶元素所代表的节点的的兄弟节点了
      *  将tableStack栈顶的table设置为其父table的子元素。父table可能是一个数组，也可能是一个对象需要进行判断而区别对待
@@ -868,34 +942,20 @@ namespace net{
         return sendbuffer;
     }
 
-    const char *MessageParser::getMessageTypeFromLua(lua_State *lua){
-        //获取messageTypeId
-        lua_pushstring(lua,"messageType");
+    const char *MessageParser::getMessageIdFromLua(lua_State *lua){
+        //获取messageIdId
+        lua_pushstring(lua,"messageId");
         lua_gettable(lua, 1);
-        short msgTypeId = lua_tonumber(lua, -1);
-        //根据messageTypeId获取对应的消息协议路径
-        const char *ret = getMessageById(msgTypeId);
-        return ret;
+        const char *messageId = lua_tostring(lua, -1);
+        return messageId;
     }
 
-    const char *MessageParser::getMessageTypeFromBinary(){
+    std::string MessageParser::getMessageIdFromBinary(){
         char *readBuffer = MessageManager::getInstance()->getReader().getBuffer();
         int16_t msgTypeId;
         memcpy(&msgTypeId,readBuffer + readBufferIndex,DataTypeLen::SHORT_LEN);
-        const char *ret = getMessageById(msgTypeId);
+        std::string ret = std::to_string(msgTypeId);
         return ret;
-    }
-
-    const char *MessageParser::getMessageById(short msgTypeId){
-        lua_State *lua = MessageManager::getInstance()->getLuaState();
-        lua_getglobal(lua, "g");
-        lua_pushstring(lua, "MESSAGE_TYPE");
-        lua_gettable(lua,-2);
-        lua_rawgeti(lua, -1, msgTypeId);
-        const char *msgType = lua_tostring(lua, -1);
-        
-        
-        return msgType;
     }
 
     void MessageParser::destoryProtocolTree(Node *node){
@@ -926,7 +986,7 @@ namespace net{
             printf("root\n");
         }
         else{
-            printf("node %s,isList=%s\n",node->data,node->isList ? "true" : "false");
+            printf("node %s,isList=%s,isObject=%s\n",node->data,node->isList ? "true" : "false",node->isObject ? "true" : "false");
         }
         
         travelProtocolTree(node->leftLink);

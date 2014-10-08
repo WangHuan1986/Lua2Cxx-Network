@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<messages>
+    <message name="TC_1" id = "1001">
+        <field type="string" name="name" />
+    </message>
+    
+    <message name="TC_2" id = "1002">
+        <field type="object" name="o">
+            <field type="string" name="name" />
+        </field>
+    </message>
+    
+    <message name="TC_3" id = "1003">
+        <field type="list" name="mylist">
+            <field type="string" name="name" />
+        </field>
+    </message>
+    
+    <message name="TC_4" id = "1004">
+        <field type = "object" name = "A">
+            <field type = "object" name = "B">
+                <field type = "object" name = "C">
+                    <field type = "object" name = "D">
+                        <field type = "string" name = "name" />
+                    </field>
+                </field>
+            </field>
+        </field>
+        <field type = "object" name = "E" />
+    </message>
+    
+    <message name="TC_5" id = "1005">
+        <field type = "object" name = "A">
+            <field type="string" name="name"/>
+            <field type = "object" name = "B">
+                <field type = "object" name = "C">
+                    <field type = "object" name = "D" />
+                </field>
+            </field>
+        </field>
+        <field type = "object" name = "E" />
+    </message>
+    
+    <message name="TC_6" id = "1006">
+        <field type = "string" name = "name" />
+        <field type = "object" name = "A" />
+        <field type = "object" name = "B" />
+        <field type = "object" name = "C" />
+        <field type = "object" name = "D">
+            <field type = "object" name = "E">
+                <field type = "object" name = "F" />
+            </field>
+        </field>
+    </message>
+    
+    <message name="TC_7" id = "1007">
+        <field type = "string" name = "string_field"/>
+        <field type = "boolean" name = "boolean_field"/>
+        <field type = "byte" name = "char_field"/>
+        <field type = "short" name = "short_field"/>
+        <field type = "int" name = "int_field"/>
+        <field type = "long" name = "long_field"/>
+        <field type = "double" name = "double_field"/>
+    </message>
+    
+    <message name="TC_8" id = "1008">
+        <field type = "string" name = "string_field"/>
+        <field type = "boolean" name = "boolean_field"/>
+        <field type = "byte" name = "byte_field"/>
+        <field type = "short" name = "short_field"/>
+        <field type = "int" name = "int_field"/>
+        <field type = "long" name = "long_field"/>
+        <field type = "object" name = "wife">
+            <field type = "object" name = "wife_name">
+                <field type = "string" name = "big_name"/>
+                <field type = "string" name = "small_name"/>
+            </field>
+            <field type = "list" name = "kids">
+                <field type = "string" name = "name"/>
+                <field type = "byte" name = "age"/>
+            </field>
+        </field>
+    </message>
+    
+    <message name="TC_9" id = "1009">
+        <field type = "object" name = "wife">
+            <field type = "object" name = "father">
+                <field type = "list" name = "dogs">
+                    <field type = "list" name = "owners">
+                        <field type = "string" name = "name"/>
+                        <field type = "list" name = "farms">
+                            <field type = "string" name = "name"/>
+                        </field>
+                    </field>
+                </field>
+            </field>
+        </field>
+    </message>
+    
+    <message name="TC_10" id = "1010">
+        <field type = "string" name = "name"/>
+        <field type = "object" name = "wife">
+            <field type = "object" name = "wife_name">
+                <field type = "string" name = "big_name"/>
+                <field type = "string" name = "small_name"/>
+            </field>
+            <field type = "byte" name = "age"/>
+            <field type = "object" name = "father">
+                <field type = "string" name = "name"/>
+                <field type = "byte" name = "age"/>
+                <field type = "list" name = "dogs">
+                    <field type = "string" name = "name"/>
+                    <field type = "byte" name = "age"/>
+                    <field type = "list" name = "owners">
+                        <field type = "string" name = "name"/>
+                        <field type = "byte" name = "age"/>
+                        <field type = "list" name = "farms">
+                            <field type = "string" name = "name"/>
+                        </field>
+                    </field>
+                </field>
+            </field>
+        </field>
+        <field type = "list" name = "kids">
+            <field type = "string" name = "name"/>
+            <field type = "byte" name = "age"/>
+        </field>
+    </message>
+    
+    <message name="TC_11" id = "1011">
+        <field type = "list" name = "wifes">
+            <field type = "string" name = "name"/>
+        </field>
+        <field type = "string" name = "string_field"/>
+    </message>
+    
+</messages>

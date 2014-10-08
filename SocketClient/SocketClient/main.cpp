@@ -45,7 +45,7 @@ int main(int argc, const char * argv[])
     net::MessageManager::getInstance()->setLuaState(lua);
     
     //加载编译Lua文件,并发送数据
-    if ((iErr = luaL_loadfile (lua, "/Users/wanghuan/dev/Lua2Cxx-Network/SocketClient/SocketClient/luaTest.lua")) == 0){
+    if ((iErr = luaL_loadfile(lua, "/Users/wanghuan/mine/Lua2Cxx-Network/SocketClient/SocketClient/luatest.lua")) == 0){
         //执行刚刚读进来的lua文件。LUA_MULTRET指的是可能会有多个返回值。
         if ((iErr = lua_pcall (lua, 0, LUA_MULTRET, 0)) == 0){
             net::MessageManager::getInstance()->run();

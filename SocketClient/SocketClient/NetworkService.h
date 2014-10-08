@@ -12,18 +12,17 @@
 extern "C" {
 #include "syslib.h"
 }
-
+#include "MessageConfig.h"
 
 namespace net{
-    //extern const int MESSAGE_INDICATOR_LENTH;
-    const int SEND_BUFFER_SIZE = 1024;
-    const int RECV_BUFFER_SIZE = 1024;
-    
+
+    extern const int MESSAGE_SOCKET_SEND_BUFFER_SIZE;
+    extern const int MESSAGE_SOCKET_RECV_BUFFER_SIZE;
+    extern const char * const SERVER_IP;
+    extern const int SERVER_PORT;
     
     class MessageManager;
-
     class NetworkService{
-        
     public:
         NetworkService():
             sockSendBufferFull(false){}
@@ -43,8 +42,8 @@ namespace net{
         bool isSockRecvBufferFull();
         void setSockRecvBufferFull(bool);
     private:
-        char recvBuffer[RECV_BUFFER_SIZE];
-        char sendBuffer[SEND_BUFFER_SIZE];
+        char sendBuffer[MESSAGE_SOCKET_SEND_BUFFER_SIZE];
+        char recvBuffer[MESSAGE_SOCKET_RECV_BUFFER_SIZE];
         int sockfd;
         bool sockSendBufferFull;
         bool sockRecvBufferFull;

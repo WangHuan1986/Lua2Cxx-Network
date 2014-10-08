@@ -10,11 +10,13 @@
 #define __SocketClient_v2__MessageManager__
 
 #include <iostream>
+
 extern "C" {
-#include "lua.h"
-#include "lualib.h"
-#include "lauxlib.h"
+    #include "lua.h"
+    #include "lualib.h"
+    #include "lauxlib.h"
 }
+#include "MessageConfig.h"
 #include "MessageWriter.h"
 #include "MessageReader.h"
 #include "NetworkService.h"
@@ -22,7 +24,8 @@ extern "C" {
 
 namespace net{
 
-    const int MESSAGE_INDICATOR_LENTH = 4;
+    extern const int MESSAGE_INDICATOR_LENGTH;
+    extern const int MESSAGE_ID_LENGTH;
 
     class MessageManager{
     public:
@@ -35,7 +38,7 @@ namespace net{
         void connect();
         void disconnect();
         void run();
-        void sendMessage(const void* , size_t len);
+        void sendMessage(const char *,const void* , size_t len);
         void sendMessageFromLua(lua_State *lua);
     public:
         MessageWriter& getWriter();
@@ -45,6 +48,7 @@ namespace net{
         lua_State *getLuaState();
     private:
         MessageManager():lua(NULL){}
+        const char *getMessageIdFromLua(lua_State *);
         static MessageManager *messageManager;
         NetworkService network;
         MessageWriter writer;

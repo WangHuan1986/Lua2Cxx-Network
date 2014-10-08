@@ -38,6 +38,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1101B18419D568FE008F4ABB /* messageProtocol.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = messageProtocol.xml; sourceTree = "<group>"; };
 		1174699D194C13E8006C3821 /* SocketClient */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = SocketClient; sourceTree = BUILT_PRODUCTS_DIR; };
 		117469A8194C14DB006C3821 /* config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = config.h; sourceTree = "<group>"; };
 		117469AF194C14DB006C3821 /* error.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = error.c; sourceTree = "<group>"; };
@@ -75,23 +76,12 @@
 		11746A06194C14DB006C3821 /* wrapsock.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = wrapsock.c; sourceTree = "<group>"; };
 		11746A08194C14DB006C3821 /* wrapunix.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = wrapunix.c; sourceTree = "<group>"; };
 		11746A0B194C14DB006C3821 /* writen.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = writen.c; sourceTree = "<group>"; };
-		11746A0C194C14DB006C3821 /* luatest.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = luatest.lua; sourceTree = "<group>"; };
+		11746A0C194C14DB006C3821 /* luatest.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; lineEnding = 0; path = luatest.lua; sourceTree = "<group>"; };
 		11746A0D194C14DB006C3821 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
-		11746A0E194C14DB006C3821 /* MessageManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MessageManager.cpp; sourceTree = "<group>"; };
+		11746A0E194C14DB006C3821 /* MessageManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; path = MessageManager.cpp; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.cpp; };
 		11746A0F194C14DB006C3821 /* MessageManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageManager.h; sourceTree = "<group>"; };
-		11746A10194C14DB006C3821 /* MessageParser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MessageParser.cpp; sourceTree = "<group>"; };
-		11746A11194C14DB006C3821 /* MessageParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageParser.h; sourceTree = "<group>"; };
-		11746A13194C14DB006C3821 /* TC_0.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = TC_0.xml; sourceTree = "<group>"; };
-		11746A14194C14DB006C3821 /* TC_1.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = TC_1.xml; sourceTree = "<group>"; };
-		11746A15194C14DB006C3821 /* TC_10.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = TC_10.xml; sourceTree = "<group>"; };
-		11746A16194C14DB006C3821 /* TC_2.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = TC_2.xml; sourceTree = "<group>"; };
-		11746A17194C14DB006C3821 /* TC_3.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = TC_3.xml; sourceTree = "<group>"; };
-		11746A18194C14DB006C3821 /* TC_4.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = TC_4.xml; sourceTree = "<group>"; };
-		11746A19194C14DB006C3821 /* TC_5.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = TC_5.xml; sourceTree = "<group>"; };
-		11746A1A194C14DB006C3821 /* TC_6.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = TC_6.xml; sourceTree = "<group>"; };
-		11746A1B194C14DB006C3821 /* TC_7.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = TC_7.xml; sourceTree = "<group>"; };
-		11746A1C194C14DB006C3821 /* TC_8.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = TC_8.xml; sourceTree = "<group>"; };
-		11746A1D194C14DB006C3821 /* TC_9.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = TC_9.xml; sourceTree = "<group>"; };
+		11746A10194C14DB006C3821 /* MessageParser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; path = MessageParser.cpp; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.cpp; };
+		11746A11194C14DB006C3821 /* MessageParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = MessageParser.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		11746A1E194C14DB006C3821 /* MessageReader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MessageReader.cpp; sourceTree = "<group>"; };
 		11746A1F194C14DB006C3821 /* MessageReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageReader.h; sourceTree = "<group>"; };
 		11746A20194C14DB006C3821 /* MessageWriter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MessageWriter.cpp; sourceTree = "<group>"; };
@@ -99,6 +89,7 @@
 		11746A22194C14DB006C3821 /* NetworkService.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = NetworkService.cpp; sourceTree = "<group>"; };
 		11746A23194C14DB006C3821 /* NetworkService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkService.h; sourceTree = "<group>"; };
 		117E87541993B5440060403C /* syslib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = syslib.h; sourceTree = "<group>"; };
+		11A9194B19E4B1E100D5A4F1 /* MessageConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageConfig.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +115,7 @@
 				11746A0F194C14DB006C3821 /* MessageManager.h */,
 				11746A10194C14DB006C3821 /* MessageParser.cpp */,
 				11746A11194C14DB006C3821 /* MessageParser.h */,
+				11A9194B19E4B1E100D5A4F1 /* MessageConfig.h */,
 				11746A12194C14DB006C3821 /* messageProtocol */,
 				11746A1E194C14DB006C3821 /* MessageReader.cpp */,
 				11746A1F194C14DB006C3821 /* MessageReader.h */,
@@ -197,17 +189,7 @@
 		11746A12194C14DB006C3821 /* messageProtocol */ = {
 			isa = PBXGroup;
 			children = (
-				11746A13194C14DB006C3821 /* TC_0.xml */,
-				11746A14194C14DB006C3821 /* TC_1.xml */,
-				11746A15194C14DB006C3821 /* TC_10.xml */,
-				11746A16194C14DB006C3821 /* TC_2.xml */,
-				11746A17194C14DB006C3821 /* TC_3.xml */,
-				11746A18194C14DB006C3821 /* TC_4.xml */,
-				11746A19194C14DB006C3821 /* TC_5.xml */,
-				11746A1A194C14DB006C3821 /* TC_6.xml */,
-				11746A1B194C14DB006C3821 /* TC_7.xml */,
-				11746A1C194C14DB006C3821 /* TC_8.xml */,
-				11746A1D194C14DB006C3821 /* TC_9.xml */,
+				1101B18419D568FE008F4ABB /* messageProtocol.xml */,
 			);
 			path = messageProtocol;
 			sourceTree = "<group>";

@@ -11,8 +11,12 @@
 
 #include <iostream>
 #include <map>
+#include "MessageConfig.h"
 
 namespace net{
+    
+    extern const int MESSAGE_READER_BUFFER_SIZE;
+    
     class MessageManager;
     class MessageReader{
     public:
@@ -32,7 +36,7 @@ namespace net{
         void setAvailable(bool);
         void reset();//当数据发送完毕后重置数据成员以准备下一次接收
     private:
-        char buffer[1024];
+        char buffer[MESSAGE_READER_BUFFER_SIZE];
         bool available;
         size_t dataLength; //消息体长度，不包括indicator
         size_t hasRecv; //实际接收的字节数，包括indicator

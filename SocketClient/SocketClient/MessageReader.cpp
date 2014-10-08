@@ -12,8 +12,8 @@
 namespace net{
     //当一条完整数据接收完毕后此方法会被调用
     void MessageReader::read(size_t n){
-        
-        printf("============ message length is %d byte==============\n",(int)n);
+        printf("===== Message Body %d Byte =====\n",(int)n);
+        std::cout << "" << std::endl;
         MessageManager::getInstance()->getParser().binaryToLua();
     }
 

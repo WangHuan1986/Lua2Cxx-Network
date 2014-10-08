@@ -23,17 +23,25 @@ namespace net{
     }
 
     void MessageManager::run(){
-//        messageProtocalPath = cocos2d::FileUtils::getInstance()->fullPathForFilename("messageProtocol/TC_0.xml");
         network.run();
     }
 
     void MessageManager::sendMessageFromLua(lua_State *lua){
+        const char *msgId = getMessageIdFromLua(lua);
         size_t msgLen = parser.luaToBinary(lua);
-        sendMessage(parser.getSendBuffer(), msgLen);
+        sendMessage(msgId,parser.getSendBuffer(), msgLen);
     }
 
-    void MessageManager::sendMessage(const void *data , size_t len){
-        writer.write(data,len);
+    void MessageManager::sendMessage(const char *msgId ,const void *data , size_t len){
+        writer.write(msgId, data, len);
+    }
+    
+    const char *MessageManager::getMessageIdFromLua(lua_State *lua){
+        lua_pushstring(lua,"messageId");
+        lua_gettable(lua, 1);
+        const char *messageId = lua_tostring(lua, -1);
+        lua_settop(lua,1);
+        return messageId;
     }
 
     void MessageManager::setLuaState(lua_State *L){

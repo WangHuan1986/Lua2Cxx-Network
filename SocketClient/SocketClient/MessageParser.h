@@ -14,16 +14,14 @@ extern "C" {
 #include "lualib.h"
 #include "lauxlib.h"
 }
-
 #include "tinyxml.h"
 #include <stack>
+#include "MessageConfig.h"
 
 namespace net{
-    
-    class MessageManager;
 
     enum DataType {
-        STRING = 0,BOOLEAN,CHAR,SHORT,INT,LONG,DOUBLE,UNKNOWN
+        STRING = 0,BOOLEAN,CHAR,SHORT,INT,LONG,DOUBLE,OBJECT,LIST,UNKNOWN
     };
 
     enum DataTypeLen{
@@ -31,9 +29,9 @@ namespace net{
         LONG_LEN = 8,DOUBEL_LEN = 8
     };
 
-    const int PARSER_BUFFER_SIZE = 1024;
+    extern const int MESSAGE_PARSER_SEND_BUFFER_SIZE;
     //项目中不会直接这样使用一个文件路径，而是使用引擎自带的文件查找工具函数根据文件名称进行搜索而得到文件全路径
-    const std::string MESSAGE_PROTOCOL_PATH = "/Users/wanghuan/dev/Lua2Cxx-Network/SocketClient/SocketClient/messageProtocol/";
+    extern const char * const MESSAGE_PROTOCOL_PATH;
 
     /**
      *  protocol tree的结点
@@ -49,7 +47,14 @@ namespace net{
         Node *leftLink;
         Node *rightLink;
         Node *parent;
-        Node():leftLink(NULL),rightLink(NULL),parent(NULL),isRoot(false),isList(false),listSize(0),isObject(false){}
+        Node(): leftLink(NULL),
+                rightLink(NULL),
+                parent(NULL),
+                isRoot(false),
+                isList(false),
+                listSize(0),
+                dataType(DataType::UNKNOWN),
+                isObject(false){}
     };
 
     /**
@@ -124,10 +129,14 @@ namespace net{
         int listIndex;
         TableStackObject():travelId(0),parentTravelId(0),isList(false),listSize(0),listIndex(0){}
     };
-
+    
+    class MessageManager;
     class MessageParser{
     public:
-        MessageParser():sendBufferIndex(0),readBufferIndex(0),travelId(0){}
+        MessageParser():sendBufferIndex(0),readBufferIndex(0),travelId(0){
+            //加载协议文件并存入protocolMap
+            loadProtocol();
+        }
         //将lua table序列化为二进制数据发送出去
         size_t luaToBinary(lua_State *);
         //将二进制数据转换为lua table，在接收完一条消息后进行调用
@@ -135,6 +144,13 @@ namespace net{
     public:
         char *getSendBuffer();
     private:
+        
+        //加载消息协议
+        void loadProtocol();
+        
+        //通过消息id找到对应的protocol tree
+        Node *getProtocol(const char *);
+        
         //根据消息协议xml创建protocol tree
         Node *createProtocolTree(TiXmlNode* pParent,Node *parentNode);
         
@@ -185,9 +201,8 @@ namespace net{
         bool isParentOnStackTop(DataNode *);
         void setNestedTable(lua_State *lua,DataNode *node);
         
-        const char *getMessageTypeFromLua(lua_State *lua);
-        const char *getMessageTypeFromBinary();
-        const char *getMessageById(short);
+        const char *getMessageIdFromLua(lua_State *lua);
+        std::string getMessageIdFromBinary();
         
         //发送或接收完一条数据后释放用到的资源
         void destoryProtocolTree(Node *node);
@@ -199,9 +214,9 @@ namespace net{
         void printData(DataNode *node);
         void printStack(std::stack<std::string> &stack);
     private:
-        char sendbuffer[PARSER_BUFFER_SIZE];
-        int sendBufferIndex;
+        char sendbuffer[MESSAGE_PARSER_SEND_BUFFER_SIZE];
         //将二进制数据从MessageReader的buffer上读取出来时使用此index来标记当前读取的位置
+        int sendBufferIndex;
         //这里没有再为MessageParser创建一个recvBuffer是因为当binaryToLua被调用的时候刚好是一整条数据接收完毕的时候，所以直接从
         //MessageReader的buffer读取即可
         int readBufferIndex;
@@ -210,6 +225,8 @@ namespace net{
         int travelId;
         //接收数据时将datatree转换为lua table的时候用于记录当前正在被转化的table，以实现table之间的嵌套关系
         std::stack<TableStackObject> tableStack;
+        //存放协议树的map，key是消息号，值为协议树(protocol tree)。当需要进行通信的时候就会根据消息id号找到对应的协议树
+        std::map<std::string, Node *> protocolMap;
         
     };
 }

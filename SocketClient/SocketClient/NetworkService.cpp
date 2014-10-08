@@ -10,6 +10,7 @@
 #include "MessageManager.h"
 
 namespace net{
+    
     int NetworkService::noblockConnect(int sockfd, const SA *saptr, socklen_t salen, int nsec){
         int				flags, n, error;
         socklen_t		len;
@@ -71,8 +72,8 @@ namespace net{
         bzero(&servaddr, sizeof(servaddr));
         
         servaddr.sin_family = AF_INET;
-        servaddr.sin_port = htons(SERV_PORT);
-        Inet_pton(AF_INET, "127.0.0.1", &servaddr.sin_addr);
+        servaddr.sin_port = htons(SERVER_PORT);
+        Inet_pton(AF_INET, SERVER_IP, &servaddr.sin_addr);
         //connect超时的功能需要通过无阻塞connet来实现
         if(noblockConnect(sockfd, (SA*)&servaddr, sizeof(servaddr),5) < 0){
             printf("connect fail!\n");
@@ -107,7 +108,8 @@ namespace net{
     }
 
     void NetworkService::run(){
-        for (; ;) {
+//        cocos2d::Director::getInstance()->getScheduler()->schedule(schedule_selector(NetworkService::update), this, 0, false);
+        for (; ; ) {
             update();
         }
     }
@@ -122,11 +124,11 @@ namespace net{
         char *buffer = writer.getBuffer();
         size_t dataSize = writer.getDataLength();
         //writer的buffer上没有发送完的数据
-        size_t nleft = MESSAGE_INDICATOR_LENTH + dataSize - writer.getHasSend();
+        size_t nleft = MESSAGE_INDICATOR_LENGTH + dataSize - writer.getHasSend();
         //如果当前发送的数据量大于发送缓冲区则需要递归调用自己，尽量将所有要发送的数据在一帧之内发送出去
         bool needContinueSend = false;
-        if (nleft > SEND_BUFFER_SIZE) {
-            nleft = SEND_BUFFER_SIZE;
+        if (nleft > MESSAGE_SOCKET_SEND_BUFFER_SIZE) {
+            nleft = MESSAGE_SOCKET_SEND_BUFFER_SIZE;
             needContinueSend = true;
         }
         memcpy(sendBuffer, buffer + writer.getHasSend(), nleft);
@@ -143,7 +145,7 @@ namespace net{
             totalSend += send();
         }
         //返回可能通过多次递归发送后总的发送数据量
-        std::cout << "============ totalSend send :" << totalSend << " byte ===========" << std::endl;
+        std::cout << "===== Total Send " << totalSend << " Byte =====" << std::endl;
         return totalSend;
     }
 
@@ -169,8 +171,8 @@ namespace net{
         //注意这个地方由于在51行处获取消息的长度已经将indicator读取出来了
         bool needContinueRecv = false;
         size_t nleft = dataSize - reader.getHasRecv();
-        if (nleft > RECV_BUFFER_SIZE) {
-            nleft = RECV_BUFFER_SIZE;
+        if (nleft > MESSAGE_SOCKET_RECV_BUFFER_SIZE) {
+            nleft = MESSAGE_SOCKET_RECV_BUFFER_SIZE;
             needContinueRecv = true;
         }
         size_t totoalRecv = 0;
@@ -192,8 +194,8 @@ namespace net{
     }
 
     int NetworkService::getMessageLen(int connfd){
-        char msgLenBuffer[MESSAGE_INDICATOR_LENTH];
-        int ret = (int)readn(connfd, msgLenBuffer, MESSAGE_INDICATOR_LENTH);
+        char msgLenBuffer[MESSAGE_INDICATOR_LENGTH];
+        int ret = (int)readn(connfd, msgLenBuffer, MESSAGE_INDICATOR_LENGTH);
         if (ret > 0) {
             return atoi(msgLenBuffer);
         }
